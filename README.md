@@ -1,12 +1,18 @@
 # Towards the analysis of coral skeletal density-banding using Deep Learning
 
-[Ainsley Rutterford](), [Leonardo. Bertini](), [Erica J. Hendy](), [Kenneth Johnson](), [Rebecca Summerfield](), [Tilo Burghardt]()
+[Ainsley Rutterford](https://github.com/ainsleyrutterford), [Leonardo. Bertini](https://www.4d-reef.eu/avada-portfolio/leonardo-bertini/), [Erica J. Hendy](http://www.bris.ac.uk/earthsciences/people/erica-hendy/index.html), [Kenneth Johnson](https://www.nhm.ac.uk/our-science/departments-and-staff/staff-directory/kenneth-johnson.html), [Rebecca Summerfield](https://www.researchgate.net/profile/Rebecca_Summerfield), [Tilo Burghardt](http://people.cs.bris.ac.uk/~burghard/)
+
+This repository contains accompanying code for [our note]() submitted to the Coral Reefs journal.
+
+X-ray micro-Computed Tomography (µCT) is increasingly used to record the skeletal growth banding of massive coral. However, the wealth of data generated is time-consuming to analyse and requires expert interpretation to estimate growth rates and colony age. We used a Keras-based Python implementation of the U-Net architecture [(Ronneberger et al. 2015)](https://arxiv.org/abs/1505.04597) as our backbone Convolutional Neural Network (CNN) to reproduce the expert identification of annual density banding. The CNN was trained with µCT images combined with manually-labelled ground truths to learn the topological features in different specimens of massive Porites sp. The CNN successfully predicted the position of low- and high-density boundaries in images not used in training.
 
 <p align="center">
   <img src="https://github.com/ainsleyrutterford/deep-learning-coral-analysis/raw/master/coral.png">
 </p>
 
-The accompanying code for [our note]() submitted to the Coral Reefs journal. We used a Keras-based Python implementation of the U-Net architecture [(Ronneberger et al. 2015)](https://arxiv.org/abs/1505.04597) as our backbone Convolutional Neural Network (CNN).
+<sub>An example of an X-ray µCT scan slice with the predicted high- and low-density boundaries superimposed.</sub>
+
+<!-- Once published (hopefully!) how to cite section here. -->
 
 ## Repository overview
 
@@ -21,6 +27,7 @@ The accompanying code for [our note]() submitted to the Coral Reefs journal. We 
 - [test](test) is an empty folder to which the predictions output when testing the network will be saved.
 - [utils/calcification.py](utils/calcification.py) is used to automatically calculate the densities, linear extension rates, and calcification rates of the slices stored in [utils/calcification](utils/calcification).
 - [utils/calcification.ipynb](utils/calcification.ipynb) contains an interactive jupyter notebook which walks through the calculation of the density, linear extension rate, and calcification rate of a single area of a slice.
+- [utils/sliding_window.py](utils/sliding_window.py) is used to generate a dataset of smaller "patches" that the network can train with.
 
 ## Prerequisits
 
@@ -35,7 +42,7 @@ If you plan on using a GPU to train, the `tensorflow-gpu` corresponding to the `
 
 ## Generating a dataset
 
-In order to generate a dataset of smaller "patches", the [utils/sliding_window.py](utils/sliding_window.py) script can be used. To see what command line arguments are available, run
+In order to generate a dataset of smaller patches, the [utils/sliding_window.py](utils/sliding_window.py) script can be used. To see what command line arguments are available, run
 
 ```
 $ python utils/sliding_window.py --help

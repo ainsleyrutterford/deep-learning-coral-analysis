@@ -3,7 +3,7 @@
 [Ainsley Rutterford](), [Leonardo. Bertini](), [Erica J. Hendy](), [Kenneth Johnson](), [Rebecca Summerfield](), [Tilo Burghardt]()
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ainsleyrutterford/deep-learning-coral-analysis/master/coral.png" height=280>
+  <img src="https://github.com/ainsleyrutterford/deep-learning-coral-analysis/raw/master/coral.png">
 </p>
 
 The accompanying code for [our note]() submitted to the Coral Reefs journal. We used a Keras-based Python implementation of the U-Net architecture [(Ronneberger et al. 2015)](https://arxiv.org/abs/1505.04597) as our backbone Convolutional Neural Network (CNN).

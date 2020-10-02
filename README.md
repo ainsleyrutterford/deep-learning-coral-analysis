@@ -31,7 +31,7 @@ These can be installed by running `pip install -r requirements.txt`.
 
 If you plan on using a GPU to train, the `tensorflow-gpu` corresponding to the `tensorflow` version used is also required. 
 
-##### Note that this code was only tested with CUDA 10.1 and cuDNN 7.4. In order to use a newer version of CUDA or cuDNN, tensorflow may need to be updated. [This page](https://www.tensorflow.org/install/source#tested_build_configurations) contains a list of the recommended CUDA and cuDNN versions for each tensorflow version (windows users refer to [this page](https://www.tensorflow.org/install/source_windows#tested_build_configurations) instead). In order to check if a GPU is being used while training, the [train.py](train.py) script can be run with the `--verbose` flag.
+<sub>Note that this code was only tested with CUDA 10.1 and cuDNN 7.4. In order to use a newer version of CUDA or cuDNN, tensorflow may need to be updated. [This page](https://www.tensorflow.org/install/source#tested_build_configurations) contains a list of the recommended CUDA and cuDNN versions for each tensorflow version (windows users refer to [this page](https://www.tensorflow.org/install/source_windows#tested_build_configurations) instead). In order to check if a GPU is being used while training, the [train.py](train.py) script can be run with the `--verbose` flag.</sub>
 
 ## Generating a dataset
 

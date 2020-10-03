@@ -2,15 +2,10 @@
 
 [Ainsley Rutterford](https://github.com/ainsleyrutterford), [Leonardo. Bertini](https://www.4d-reef.eu/avada-portfolio/leonardo-bertini/), [Erica J. Hendy](http://www.bris.ac.uk/earthsciences/people/erica-hendy/index.html), [Kenneth Johnson](https://www.nhm.ac.uk/our-science/departments-and-staff/staff-directory/kenneth-johnson.html), [Rebecca Summerfield](https://www.researchgate.net/profile/Rebecca_Summerfield), [Tilo Burghardt](http://people.cs.bris.ac.uk/~burghard/)
 
-This repository contains accompanying code for [our note]() submitted to the Coral Reefs journal.
+This repository contains accompanying code for [our note]() submitted to the Coral Reefs journal. X-ray micro-Computed Tomography (µCT) is increasingly used to record the skeletal growth banding of massive coral. However, the wealth of data generated is time-consuming to analyse and requires expert interpretation to estimate growth rates and colony age. We used a Keras-based Python implementation of the U-Net architecture [(Ronneberger et al. 2015)](https://arxiv.org/abs/1505.04597) as our backbone Convolutional Neural Network (CNN) to reproduce the expert identification of annual density banding. The CNN was trained with µCT images combined with manually-labelled ground truths to learn the topological features in different specimens of massive Porites sp. The CNN successfully predicted the position of low- and high-density boundaries in images not used in training.
 
-X-ray micro-Computed Tomography (µCT) is increasingly used to record the skeletal growth banding of massive coral. However, the wealth of data generated is time-consuming to analyse and requires expert interpretation to estimate growth rates and colony age. We used a Keras-based Python implementation of the U-Net architecture [(Ronneberger et al. 2015)](https://arxiv.org/abs/1505.04597) as our backbone Convolutional Neural Network (CNN) to reproduce the expert identification of annual density banding. The CNN was trained with µCT images combined with manually-labelled ground truths to learn the topological features in different specimens of massive Porites sp. The CNN successfully predicted the position of low- and high-density boundaries in images not used in training.
-
-<p align="center">
-  <img src="https://github.com/ainsleyrutterford/deep-learning-coral-analysis/raw/master/coral.png">
-</p>
-
-<sub>An example of an X-ray µCT scan slice with the predicted high- and low-density boundaries superimposed.</sub>
+<img src="https://github.com/ainsleyrutterford/deep-learning-coral-analysis/raw/master/coral.png">
+<sup>An example of an X-ray µCT scan slice with the predicted high- and low-density boundaries superimposed.</sup>
 
 <!-- Once published (hopefully!) how to cite section here. -->
 

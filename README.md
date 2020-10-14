@@ -63,7 +63,7 @@ For example, to train the ablated 2D U-Net architecture with a learning rate of 
 $ python train.py --ablated --lr 0.0001 --batch 4
 ```
 
-Each sample that the network is trained is augmented. The augmentation parameters are defined in [train.py](train.py) and can be tuned if necessary.
+Each sample used for training is augmented before it is passed to the network. The augmentation parameters currently used are defined in [train.py](train.py) and can be tuned if necessary.
 
 ## Testing
 

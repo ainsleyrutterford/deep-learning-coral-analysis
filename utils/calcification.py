@@ -249,8 +249,8 @@ for s in slices:
 
 print("Stats calculated.")
 
-with open("stats.csv", mode="w") as f:
-    writer = csv.writer(f)
+with open("csv/stats.csv", mode="w") as f:
+    writer = csv.writer(f, lineterminator='\n')
     writer.writerow(["Density", "Linear extension", "Calcification"])
     for i in range(len(slices)):
         row = [f"{stats[i][0]:.2f} ± {stats[i][1]:.2f}",
@@ -258,10 +258,10 @@ with open("stats.csv", mode="w") as f:
                f"{stats[i][4]:.2f} ± {stats[i][5]:.2f}"]
         writer.writerow(row)
 
-print("stats.csv written.")
+print("csv/stats.csv written.")
 
-with open("raw_data.csv", mode="w") as f:
-    writer = csv.writer(f)
+with open("csv/raw_data.csv", mode="w") as f:
+    writer = csv.writer(f, lineterminator='\n')
     writer.writerow(["Rectangle", "Voxel_size", "Density_Computer", "Length_in_pixels"])
     for i, s in enumerate(stats):
         densities = s[6]
@@ -278,4 +278,4 @@ with open("raw_data.csv", mode="w") as f:
                 row.append(distances[j])
             writer.writerow(row)
 
-print("raw_data.csv written.")
+print("csv/raw_data.csv written.")

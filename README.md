@@ -43,6 +43,12 @@ In order to generate a dataset of smaller patches, the [utils/sliding_window.py]
 $ python utils/sliding_window.py --help
 ```
 
+The script can be used for each slice one at a time. The following arguments must be supplied: the slice file name, the top left and bottom right coordinates of the confidently labelled area, the window size, and the stride. For example, with a top left coordinate `x1, y1`, a bottom right coordinate `x2, y2`, a window size of `20`, and a stride of `10`, run
+
+```
+$ python utils/sliding window.py slice.tif x1 y1 x2 y2 --size 20 --stride 10
+```
+
 ## Training
 
 The network can be trained using the [train.py](train.py) script. To see what command line arguments are available, run
@@ -59,15 +65,37 @@ $ python train.py --ablated --lr 0.0001 --batch 4
 
 ## Testing
 
+The [test.py](test.py) script can be used to test a trained network's performance on a dataset. To see what command line arguments are available, run
+
 ```
 $ python test.py --help
 ```
 
-## Predicting an entire image
+For example, to test the network's performance on the [data/test](data/test) dataset, run
 
 ```
-$ python predict.py --help
+$ python test.py --dir data/test/image --tests 56
 ```
+
+The resulting predictions are saved in the [test](test) directory.
+
+## Estimating the calcification rate
+
+In order to estimate the calcification rate of a given slice, the boundaries present in the slice must first be calculated using the [predict.py](predict.py) script. To see what command line arguments are available, run
+
+```
+$ python predict.py --help.
+```
+
+To predict the boundaries present in a slice named slice.png for example, one would run:
+
+```
+$ python predict.py --image slice.png
+```
+
+The image containing the skeletonized boundary positions will be saved in a file called out.png. Next, the [utils/calcification.py](utils/calcification.py) script can be used. The script will automatically estimate the density, linear extension rate, and calcification rate of the slice, and the final estimates will be printed by the last cell.
+
+Coordinates and density calibration values of the slices we used are provided in the script. If you would like to estimate values for new slices, a `Slice` object must be defined with the following arguments: the slice image file name, the two sets of coordinates, and the density calibration values output by the CT machine.
 
 ## Acknowledgements 
 

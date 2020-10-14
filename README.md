@@ -23,6 +23,8 @@ This repository contains accompanying code for [our note]() submitted to the Cor
 - [utils/calcification.py](utils/calcification.py) is used to automatically calculate the densities, linear extension rates, and calcification rates of the slices stored in [utils/calcification](utils/calcification).
 - [utils/calcification.ipynb](utils/calcification.ipynb) contains an interactive jupyter notebook which walks through the calculation of the density, linear extension rate, and calcification rate of a single area of a slice.
 - [utils/sliding_window.py](utils/sliding_window.py) is used to generate a dataset of smaller "patches" that the network can train with.
+- [utils/stats.py](utils/stats.py) is used for the statistical analysis of coral linear extension rates produced by an the network and by Human-based approach.
+- [utils/csv](utils/csv) contains the .csv files used by the [utils/stats.py](utils/stats.py) script.
 
 ## Prerequisits
 
@@ -95,9 +97,18 @@ To predict the boundaries present in a slice named slice.png for example, one wo
 $ python predict.py --image slice.png
 ```
 
-The image containing the skeletonized boundary positions will be saved in a file called out.png. Next, the [utils/calcification.py](utils/calcification.py) script can be used. The script will automatically estimate the density, linear extension rate, and calcification rate of the slice, and the final estimates will be printed by the last cell.
+The image containing the skeletonized boundary positions will be saved in a file called out.png. Next, the [utils/calcification.py](utils/calcification.py) script can be used:
+
+```
+$ cd calcification
+$ python calcification.py
+```
+
+The script will automatically estimate the density, linear extension rate, and calcification rate of the slice, and the final estimates will be exported to .csv files in the [utils/csv](utils/csv) directory.
 
 Coordinates and density calibration values of the slices we used are provided in the script. If you would like to estimate values for new slices, a `Slice` object must be defined with the following arguments: the slice image file name, the two sets of coordinates, and the density calibration values output by the CT machine.
+
+An [interactive jupyter notebook](utils/calcification.ipynb) is available which runs a user through the methods used to estimate the density, linear extension rate, and calcification rate of a slice.
 
 ## Acknowledgements 
 

@@ -14,6 +14,8 @@ Human based dataset file is given as 'results_human.csv'
 import pandas as pd
 from scipy import stats
 from scipy.stats import pearsonr
+import matplotlib
+matplotlib.use('pdf')
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy 
@@ -61,10 +63,11 @@ AI_dataset['ROI'] = newlist_ROI
 
 
 #subset into Linear extention ONLY datasets
+pd.options.mode.chained_assignment = None
 linear_human= Human_dataset[['Slice','ROI','Linear_ext']]
-linear_human['Origin']= 'Human'
+linear_human.loc[ : ,'Origin']= 'Human'
 linear_pc=AI_dataset[['Slice','ROI','Linear_ext']]
-linear_pc['Origin']= 'AI'
+linear_pc.loc[ : ,'Origin']= 'AI'
 
 #Getting single dataset merging Human and AI data
 newDF=pd.concat([linear_human,linear_pc]) #concat by column
@@ -87,6 +90,7 @@ plt.xlabel("Slice_ROI breakdown")
 plt.legend(title='Method')
 plt.xticks(rotation=90)
 figure1.savefig('figure_S4_1.svg', format='svg', dpi=600)
+print("Figure S4 1 saved as figure_S4_1.svg")
 
 
 
@@ -100,6 +104,7 @@ plt.ylabel("Linear extension rates (mm$^{-1}$)")
 plt.xlabel("Slice")
 plt.legend(title='Method')
 figure2.savefig('figure_S4_2.svg', format='svg', dpi=600)
+print("Figure S4 2 saved as figure_S4_2.svg")
 
 
 
@@ -147,6 +152,7 @@ plt.plot(y_pred, x_pred,'red')
 plt.text(6.5,1, ("R$^{2}$ = " + str(round(Correl[0]**2,3)))) #note R**2
 plt.legend(['mean linear extension data','x = y', 'Regression fit'])
 figure3.savefig('figure_S4_3.svg', format='svg', dpi=600)
+print("Figure S4 3 saved as figure_S4_3.svg")
 
 
 # ====OPTIONAL ===== #
